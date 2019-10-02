@@ -1,0 +1,47 @@
+% Custom commands for cleaner and
+% easier implementation in the document.
+
+\newcommand{\fig}[4]{%
+    \figure[H]
+        \centering
+        \includegraphics[width=#1\textwidth]{#3}
+        \caption{#4}\label{fig:#2}
+    \endfigure
+}
+
+\newcommand{\framedFig}[4]{%
+    \figure[H]
+        \centering
+        \framebox{\includegraphics[width=#1\textwidth]{#3}}
+        \caption{#4}\label{fig:#2}
+    \endfigure
+}
+
+\newcommand{\code}[4]{%
+    \begin{listing}[H]
+        \caption{#2}
+        \label{code:#1}
+        \inputminted[frame=lines]{#3}{\codePath #4}
+    \end{listing}
+}
+
+\newcommand{\tikzFig}[2]{%
+    \figure[H]
+        \centering
+        \resizebox{1\textwidth}{!}{%
+            \input{\tikzPath #1.tex}
+        }%
+        \caption{#2}\label{fig:#1}
+    \endfigure
+}
+
+\newcommand{\texTable}[3]{%
+    \table[#1]
+        \centering
+        \caption{#3}\label{tab:#2}
+        \input{\tablePath #2.tex}
+    \endtable
+}
+
+\newcommand*{\fullref}[1]{\textit{\cref{#1} \nameref{#1}}}
+\newcommand*{\Fullref}[1]{\textit{\Cref{#1} \nameref{#1}}}

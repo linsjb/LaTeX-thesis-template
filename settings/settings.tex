@@ -1,0 +1,111 @@
+% Basic settings
+% ---------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage[%
+top=4.47cm,
+bottom=3.64cm,
+left=3.7cm,
+right=3.7cm,
+headheight=50pt
+]{geometry}
+\usepackage{minted}
+
+
+
+% Font and text manipulation
+% ---------------------------
+\setlength{\parindent}{0em}
+\renewcommand{\baselinestretch}{1.2}
+
+\usepackage{titlesec}
+
+% Place chapter number and name on same row and change margins
+\titleformat{\chapter}
+{\normalfont\LARGE\bfseries}{\chaptertitlename~\thechapter:}{0.5em}{}   
+\titlespacing*{\chapter}{0em}{-1em}{2em}
+
+% Move section numbering into the margin
+\makeatletter
+\def\@seccntformat#1{\rlap{\hskip-50pt\csname the#1\endcsname}}
+\makeatother
+
+
+
+% Header
+% ---------------------------
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{
+    %Deletes the original header and footer
+    \fancyhf{}
+    
+    \fancyhead[L]{\textsf{\thesisTitle \: - \thesisSubtitle \\ \thesisAuthor}}
+    \fancyhead[R]{\textsf{\today}}
+    
+    \fancyfoot[C]{\thepage}
+}
+\pagestyle{plain}
+
+
+
+% Bibliography
+% ---------------------------
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sorting=none
+]{biblatex}
+
+
+\usepackage{csquotes}
+\addbibresource{bibliography.bib}
+
+
+
+% Figures and drawings
+% ---------------------------
+% Drawings
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\pgfplotsset{compat=newest} 
+\pgfplotsset{plot coordinates/math parser=false}
+
+
+
+% Misc
+% ---------------------------
+% Custom defined colors
+\definecolor{coverpageBlue}{RGB}{0,120,190}
+
+\usepackage{microtype}
+\usepackage{nameref}
+\usepackage[bookmarks]{hyperref}
+\usepackage[swedish, noabbrev]{cleveref}
+\crefname{listing}{programkod}{programkod}
+
+
+
+% Glossaries
+% ---------------------------
+\usepackage[acronym, nopostdot, section]{glossaries}
+\makeglossaries
+\input{glossary.tex}
+
+
+
+% Appendix
+% ---------------------------
+\usepackage[toc, page]{appendix}
+\renewcommand\appendixtocname{Bilagor}
+\renewcommand\appendixpagename{Bilagor}
+%\AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
+
+
+
+% Imports from other files
+% ---------------------------
+\input{settings/customCommands.tex}
+\input{settings/documentParameters.tex}

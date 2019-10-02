@@ -1,0 +1,36 @@
+% Description: Thesis template that matches the Mid Sweden University thesis template for Word.
+% Author: Linus Sj�bro
+
+\documentclass[12pt]{report}
+\input{settings/settings.tex}
+
+% Structure paths
+% Paths is used in settings/customCommands.tex
+\graphicspath{{./attachments/figures/images/}}
+\newcommand{\codePath}{./attachments/code/}
+\newcommand{\tikzPath}{./attachments/figures/tikz/}
+\newcommand{\tablePath}{./attachments/tables/}
+
+% Renames static names for listings
+\renewcommand\listingscaption{Programkod}
+
+
+\begin{document}
+\input{content/chapter0/chapter0.tex}
+\tableofcontents
+
+\chapter *{Terminologi}
+\printglossary[title = Ordlista, nonumberlist]
+\printglossary[title=Akronymer, type=\acronymtype, nonumberlist]
+
+\input{content/chapter1/introduction.tex}
+\input{content/chapter2/theory.tex}
+\input{content/chapter3/method.tex}
+\input{content/chapter4/construction.tex}
+\input{content/chapter5/results.tex}
+\input{content/chapter6/conclusion.tex}
+
+\printbibliography[title = Källförteckning]
+
+\input{appendices/appendices.tex}
+\end{document}
