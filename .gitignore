@@ -8,4 +8,9 @@
 *.pdf
 *.bbl
 *.blg
+*.glo
+*.acn
+*.ist
+*.out
+*.toc
 __latexindent_temp.tex
