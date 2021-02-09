@@ -9,28 +9,48 @@ left=3.7cm,
 right=3.7cm,
 headheight=50pt
 ]{geometry}
+
 \usepackage{minted}
-
-
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{--}
 
 % Font and text manipulation
 % ---------------------------
 \setlength{\parindent}{0em}
 \renewcommand{\baselinestretch}{1.2}
-
+\usepackage{mathpazo, helvet}
 \usepackage{titlesec}
 
-% Place chapter number and name on same row and change margins
-\titleformat{\chapter}
-{\normalfont\LARGE\bfseries}{\chaptertitlename~\thechapter:}{0.5em}{}   
-\titlespacing*{\chapter}{0em}{-1em}{2em}
 
 % Move section numbering into the margin
 \makeatletter
 \def\@seccntformat#1{\rlap{\hskip-50pt\csname the#1\endcsname}}
 \makeatother
 
+\titleformat{name=\chapter, numberless}
+  {\sffamily\LARGE\bfseries}{}{2.3em}{}
+  \titlespacing*{\chapter}{0em}{-1em}{0em}
 
+% Place chapter number and name on same row and change margins
+\titleformat{\chapter}
+  {\sffamily\LARGE\bfseries}{\thechapter}{1.8em}{}
+  \titlespacing*{\chapter}{-50pt}{-1em}{0em}
+
+\titleformat{\section}
+  {\sffamily\Large\bfseries}{\thesection}{1.45em}{}
+  \titlespacing*{\section}{-50pt}{1em}{0em}
+
+\titleformat{\subsection}
+  {\sffamily\large\bfseries}{\thesubsection}{1.25em}{}
+  \titlespacing*{\subsection}{-50pt}{1em}{0em}
+  
+\titleformat{\subsubsection}
+  {\sffamily\normalsize\bfseries}{\thesubsubsection}{0.8em}{}
+  \titlespacing*{\subsubsection}{0em}{1em}{0em}
+
+\titleformat{\paragraph}[runin]
+  {\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
+  % \titlespacing*{\subsubsection}{-50pt}{1em}{1em}
 
 % Header
 % ---------------------------
@@ -39,7 +59,7 @@ headheight=50pt
     %Deletes the original header and footer
     \fancyhf{}
     
-    \fancyhead[L]{\textsf{\thesisTitle \: - \thesisSubtitle \\ \thesisAuthor}}
+    \fancyhead[L]{\textsf{\thesisTitle \\ \thesisAuthor}}
     \fancyhead[R]{\textsf{\today}}
     
     \fancyfoot[C]{\thepage}
@@ -56,10 +76,8 @@ headheight=50pt
     sorting=none
 ]{biblatex}
 
-
 \usepackage{csquotes}
 \addbibresource{bibliography.bib}
-
 
 
 % Figures and drawings
@@ -70,19 +88,11 @@ headheight=50pt
 
 % Misc
 % ---------------------------
-% Custom defined colors
-\definecolor{coverpageBlue}{RGB}{0,120,190}
-
 \usepackage{microtype}
 \usepackage{nameref}
 
 % Hyperlinks for URL's and table of content
 \usepackage[bookmarks]{hyperref}
-
-% Better references in the document
-\usepackage[swedish, noabbrev]{cleveref}
-\crefname{listing}{programkod}{programkod}
-
 
 
 % Glossaries
@@ -96,13 +106,14 @@ headheight=50pt
 % Appendix
 % ---------------------------
 \usepackage[toc, page]{appendix}
-\renewcommand\appendixtocname{Bilagor}
-\renewcommand\appendixpagename{Bilagor}
+% \renewcommand\appendixtocname{Bilagor}
+% \renewcommand\appendixpagename{Bilagor}
 %\AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
 
 
+% Better references in the document
+\usepackage[swedish, noabbrev]{cleveref}
 
 % Imports from other files
 % ---------------------------
 \input{settings/customCommands.tex}
-\input{settings/documentParameters.tex}

@@ -1,36 +1,48 @@
-% Description: Thesis template that matches the Mid Sweden University thesis template for Word.
+% Description: Thesis template that matches the
+% Mid Sweden University thesis Word template.
+%
 % Author: Linus Sj�bro
-
 \documentclass[12pt]{report}
 \input{settings/settings.tex}
 
-% Structure paths
-% Paths is used in settings/customCommands.tex
 \graphicspath{{./attachments/figures/images/}}
 \newcommand{\codePath}{./attachments/code/}
 \newcommand{\tikzPath}{./attachments/figures/tikz/}
 \newcommand{\tablePath}{./attachments/tables/}
 
-% Renames static names for listings
+\newcommand{\thesisTitle}{Le title}
+\newcommand{\thesisSubtitle}{Le subtitle}
+\newcommand{\thesisAuthor}{Author}
+
+\newcommand{\examinerName}{Examiner}
+\newcommand{\supervisorName}{Supervisor}
+\newcommand{\degreeProgramme}{Degree}
+\newcommand{\courseCode}{CC}
+\newcommand{\courseCredits}{Credits}
+\newcommand{\mainFieldOfStudy}{Field}
+\newcommand{\thesisYear}{2020}
+\newcommand{\semester}{spring}
+
 \renewcommand\listingscaption{Programkod}
 
-
 \begin{document}
-\input{content/chapter0/chapter0.tex}
+\include{settings/infopage}
 \tableofcontents
 
-\chapter *{Terminologi}
-\printglossary[title = Ordlista, nonumberlist]
-\printglossary[title=Akronymer, type=\acronymtype, nonumberlist]
+\chapter *{Terminology}
+\printglossary[title = Words, nonumberlist]
+\printglossary[title=Acronyms, type=\acronymtype, nonumberlist]
 
-\input{content/chapter1/introduction.tex}
-\input{content/chapter2/theory.tex}
-\input{content/chapter3/method.tex}
-\input{content/chapter4/construction.tex}
-\input{content/chapter5/results.tex}
-\input{content/chapter6/conclusion.tex}
+\include{content/0-abstract}
+\include{content/0-foreword}
+\include{content/1-introduction}
+\include{content/2-theory}
+\include{content/3-method}
+\include{content/4-construction}
+\include{content/5-results}
+\include{content/6-conclusion}
 
-\printbibliography[title = Källförteckning]
+\printbibliography
 
 \input{appendices/appendices.tex}
 \end{document}

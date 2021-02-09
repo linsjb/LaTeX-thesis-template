@@ -14,3 +14,4 @@
 *.out
 *.toc
 __latexindent_temp.tex
+build
